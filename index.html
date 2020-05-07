@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="pageTitle"></title>
+        <link href="style.css" rel="stylesheet" type="text/css"></link>
+
+
+    </head>
+
+    <body>
+        <div id="mainHeader">
+            <h1 id="title"></h1>
+        </div>
+
+
+        <div id="mainBody">
+            <div class="pageRow">
+
+                <div class="column left">                    
+                    <div id="priceBands">
+                        <div class="white"></div><p id="textSize1">Price Band A: </p>
+                        <input type="number" class="smallNumber" id="priceBandA" min="0" value="0" oninput="updatePriceBands()"></input>
+                        <input type="checkbox" id="cpriceBandA" checked onclick="updatePriceBands()"></input>
+
+                        <br><br>
+                        <div class="red"></div><p id="textSize1">Price Band B: </p>
+                        <input type="number" class="smallNumber" id="priceBandB" min="0" value="0" oninput="updatePriceBands()"></input>
+                        <input type="checkbox" id="cpriceBandB"></input>
+                        <br><br>
+                        <div class="pink"></div><p id="textSize1">Price Band C: </p>
+                        <input type="number" class="smallNumber" id="priceBandC" min="0" value="0" oninput="updatePriceBands()"></input>
+                        <input type="checkbox" id="cpriceBandC"></input>
+                        <br><br>
+                        <div class="orange"></div><p id="textSize1">Price Band D: </p>
+                        <input type="number" class="smallNumber" id="priceBandD" min="0" value="0" oninput="updatePriceBands()"></input>
+                        <input type="checkbox" id="cpriceBandD"></input>
+                        <br><br>
+                        <div class="purple"></div><p id="textSize1">Price Band E: </p>
+                        <input type="number" class="smallNumber" id="priceBandE" min="0" value="0" oninput="updatePriceBands()"></input>
+                        <input type="checkbox" id="cpriceBandE"></input>
+                        <br><br>
+                        <div class="blue"></div><p id="textSize1">Price Band F: </p>
+                        <input type="number" class="smallNumber" id="priceBandF" min="0" value="0" oninput="updatePriceBands()"></input>
+                        <input type="checkbox" id="cpriceBandF"></input>
+                        
+
+                    </div>
+                </div>
+
+                <div class="column middle">
+                    <input type="number" class="smallNumber" id="rows" oninput="updateButtons()"></input> x
+                    <input type="number" class="smallNumber" id="numInRow" oninput="updateButtons()" max="31"></input>
+                    <div id="buttonDisplay"></div>
+                </div>
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+        
+    </body>
+    <script src="cookies.js"></script>
+    <script src="totalSeater.js"></script>
+    <script src="main.js"></script>
+
+
+
+</html>
