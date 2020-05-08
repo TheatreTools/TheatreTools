@@ -412,18 +412,21 @@
 	
 	#menu li:hover a, #menu li.active a, #menu li.active span
 	{
-		background: grey;
-		border-radius: 8px;
-		color: #FFF;
-		transition: 350ms ease;
-
+		border-width: 0px;
+		border-left-width: 1.5px;
+		border-color: cyan;
+		border-style: solid;
+		color: cyan;
+		transition: 200ms ease;
 	}
 	
 	#menu .current_page_item a
 	{
-		background: grey;
-		border-radius: 8px;
-		color: #FFF;
+		color: cyan;
+		border-style: solid;
+		border-width: 0px;
+		border-left-width: 1.5px;
+		border-color: cyan;
 	}
 	
 
@@ -441,7 +444,7 @@
 
 	#wrapper1
 	{
-		background: #EDEDED;
+		background: #dedede;
 	}
 
 	#wrapper2
@@ -767,12 +770,13 @@
 	text-align: center;
 	align-items: center;
 	align-content: center;
+	cursor: pointer;
 }
 
 
 .grid-item:hover {
-	opacity: 0.6;
 	cursor: pointer;
+	border-color: cyan;
 	transition: 200ms ease;
 }
   
@@ -788,7 +792,7 @@
 /* ---- grid ---- */
 
 .grid {
-  background: #EEE;
+  background: #dedede;
   max-width: 1200px;
 }
 
@@ -799,6 +803,25 @@
   clear: both;
 }
 
+
+
+#example-table {
+}
+
+#download {
+	border-radius: 5px;
+	background: black;
+	border-style: solid;
+	border-color: black;
+	color: white;
+	border-width: 2px;
+	width: 10em;
+}
+
+#download:hover {
+	border-color: cyan;	
+	transition: 500ms ease;
+}
 
 
 	/***********/
