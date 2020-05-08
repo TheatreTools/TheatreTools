@@ -1,11 +1,10 @@
-var title = "Theatre Producer Training";
 var pageTitle = "TPT"
 
 
 
-document.getElementById("title").innerHTML = title;
-document.getElementById("pageTitle").innerHTML = pageTitle;
+//document.getElementById("pageTitle").innerHTML = pageTitle;
 
 
 
+updateButtons(1);
 updateButtons();
