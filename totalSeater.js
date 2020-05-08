@@ -3,12 +3,12 @@ const alphabeticalRows = [
 ];
 
 let priceBands = [
-    ["priceBandA", "white", 0],
-    ["priceBandB", "red", 0],
-    ["priceBandC", "pink", 0],
+    ["priceBandA", "black", 0],
+    ["priceBandB", "white", 0],
+    ["priceBandC", "green", 0],
     ["priceBandD", "orange", 0],
     ["priceBandE", "purple", 0],
-    ["priceBandF", "blue", 0]
+    ["priceBandF", "pink", 0]
 ];
 
 
@@ -24,6 +24,8 @@ let priceBandPrices = {};
 let boxChecked;
 
 let totalPrice = 0;
+
+let removeWarning;
 
 
 /**Set Inputs and pull from cookies. */
@@ -61,15 +63,30 @@ priceBands.forEach(bandName => {
 function updatePriceBands(int) {
     priceBands.forEach(bandName => {
         let value = document.getElementById(bandName[0]).value;
-        if (value >= 999.99) {
+        if (value > 999.99) {
+            clearTimeout(removeWarning);
             document.getElementById(bandName[0]).value = 999.99;
             document.getElementById("warning").innerHTML = "Maximum price is £999.99 per ticket.";
             document.getElementById("warning").style.opacity = 1;
-            setTimeout(() =>{
-
+            removeWarning = setTimeout(() =>{
                 document.getElementById("warning").style.opacity = 0;
-            }, 2000)
+            }, 2000);
         }
+        if (bandName[0] == "priceBandA") {
+            if (value > 0) {
+                if (removeWarning != undefined) {
+                    clearTimeout(removeWarning);
+                }
+                document.getElementById(bandName[0]).value = 0;
+                document.getElementById("warning").innerHTML = "Cannot raise the price of an unused seat!";
+                document.getElementById("warning").style.opacity = 1;
+                removeWarning = setTimeout(() =>{
+
+                    document.getElementById("warning").style.opacity = 0;
+                }, 2000);
+            }
+        }
+
         if (priceBandPrices[bandName[0]] != value) {
             priceBandPrices[bandName[0]] = value;
         }
@@ -204,7 +221,7 @@ function handleClicks() {
         if(localStorage.getItem("price"+clicked) != null ){
             indPriceBands[clicked] = localStorage.getItem("price"+clicked);
         } else {
-            indPriceBands[clicked] = "priceBandA";
+            indPriceBands[clicked] = "priceBandB";
         }
         document.getElementById(clicked).onclick = () => {
             indPriceBands[clicked] = boxChecked;

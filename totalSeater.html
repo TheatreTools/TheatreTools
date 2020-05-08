@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Total Seater</title>
+<title>Theatre Tools</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
@@ -16,7 +16,7 @@
 		<div id="header" class="container">
 			<div id="menu">
 				<ul>
-					<li><a href="#" accesskey="1" title="">Home</a></li>
+					<li><a href="index.html" accesskey="1" title="">Home</a></li>
 					<li class="current_page_item"><a href="#" accesskey="2" title="">Total Seater</a></li>
 					<li><a href="#" accesskey="3" title="">About</a></li>
 					<li><a href="#" accesskey="4" title="">Contact</a></li>
@@ -27,52 +27,51 @@
 	</div>
 	<div id="wrapper1">
 		<div id="welcome" class="container">
-			<div class="title">
-				<h2>Total Seater</h2>
-				<span class="byline">Set up your venue and calculate a Gross Potential based on Price Bands</span>
-			 </div>
-			<div class="content">
 				<div id="priceBands">
 					<div class="title"><h1>Price Bands</h1>
 						<span class="byline">Set your price bands</span>
 					</div>
 					
-					<div class="white"></div><p id="textSize1">Price Band A: </p>
+					<div class="black"></div><p id="textSize1">Unused Seat: </p>
 					<br>
-					<input type="number" class="smallNumber" id="priceBandA" min="0.01" max="999.99" value="10" oninput="updatePriceBands()"></input>
+					<input type="number" class="smallNumber" id="priceBandA" min="0" max="0" value="0" oninput="updatePriceBands()"></input>
 					<input type="checkbox" id="cpriceBandA" checked onclick="updatePriceBands()"></input>
 
 					<br><br>
-					<div class="red"></div><p id="textSize1">Price Band B: </p>
+					<div class="white"></div><p id="textSize1">Price Band A: </p>
 					<br>
 					<input type="number" class="smallNumber" id="priceBandB" min="0"  max="999.99" value="20" oninput="updatePriceBands()"></input>
 					<input type="checkbox" id="cpriceBandB"></input>
 					<br><br>
-					<div class="pink"></div><p id="textSize1">Price Band C: </p>
+					<div class="green"></div><p id="textSize1">Price Band B: </p>
 					<br>
 					<input type="number" class="smallNumber" id="priceBandC" min="0"  max="999.99" value="20" oninput="updatePriceBands()"></input>
 					<input type="checkbox" id="cpriceBandC"></input>
 					<br><br>
-					<div class="orange"></div><p id="textSize1">Price Band D: </p>
+					<div class="orange"></div><p id="textSize1">Price Band C: </p>
 					<br>
 					<input type="number" class="smallNumber" id="priceBandD" min="0"  max="999.99" value="30" oninput="updatePriceBands()"></input>
 					<input type="checkbox" id="cpriceBandD"></input>
 					<br><br>
-					<div class="purple"></div><p id="textSize1">Price Band E: </p>
+					<div class="purple"></div><p id="textSize1">Price Band D: </p>
 					<br>
 					<input type="number" class="smallNumber" id="priceBandE" min="0"  max="999.99" value="40" oninput="updatePriceBands()"></input>
 					<input type="checkbox" id="cpriceBandE"></input>
 					<br><br>
-					<div class="blue"></div><p id="textSize1">Price Band F: </p>
+					<div class="pink"></div><p id="textSize1">Price Band E: </p>
 					<br>
 					<input type="number" class="smallNumber" id="priceBandF" min="0"  max="999.99" value="40" oninput="updatePriceBands()"></input>
 					<input type="checkbox" id="cpriceBandF"></input>
 					<br><br>
 					<p id="textSize1" style="font-weight: 800;">Gross Potential</p><p id="totalPrice"></p>
 					<br>
-					<p id="warning"></p>
+					<div id="warning"></div>
 			</div>
-			
+			<div class="content">
+				<div class="title">
+					<h2>Total Seater</h2>
+					<span class="byline">Set up your venue and calculate a Gross Potential based on Price Bands</span>
+				 </div>
 			<input type="number" class="smallNumber" id="rows" oninput="updateButtons()" max="28"></input> x
                     <input type="number" class="smallNumber" id="numInRow" oninput="updateButtons()" max="31"></input>
                     <div id="buttonDisplay"></div>
