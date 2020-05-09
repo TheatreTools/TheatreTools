@@ -1,3 +1,4 @@
+
 const alphabeticalRows = [
     "","A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "AL", "AM", "AN", "AO", "AP", "AQ", "AR", "AS"
 ];
@@ -27,40 +28,65 @@ let totalPrice = 0;
 
 let removeWarning;
 
-console.log("Defined Variables")
+
 /**Set Inputs and pull from cookies. */
 let rowInput = localStorage.getItem("rowInput");
-if (rowInput == "" || rowInput == undefined) {
-    rowInput = 28;
-}
-document.getElementById("rows").value = rowInput;
-
 let numinRowInput = localStorage.getItem("numinRowInput");
-if (numinRowInput == "" || numinRowInput == undefined) {
-    numinRowInput = 31;
+
+function runTotalSeater() {
+    console.log("Defining Variables")
+    if (rowInput == "" || rowInput == undefined) {
+        rowInput = 28;
+    }
+    document.getElementById("rows").value = rowInput;
+
+
+    if (numinRowInput == "" || numinRowInput == undefined) {
+        numinRowInput = 31;
+    }
+
+    document.getElementById("numInRow").value = numinRowInput;
+
+
+    /** SET VALUES OF EACH PRICE BAND */
+    priceBands.forEach(bandName => {
+        if (bandName[0] != "" && localStorage.getItem(bandName[0]) != null) {
+            priceBandPrices[bandName[0]] = localStorage.getItem(bandName[0]);
+            document.getElementById(bandName[0]).value = priceBandPrices[bandName[0]];
+        } else {
+            updatePriceBands(1);
+        }
+        
+    /** WHEN CLICK A BOX, UPDATE HANDLING */
+        document.getElementById(`c${bandName[0]}`).onclick = () => {
+            boxChecked = bandName[0];
+            handleClicks();
+        }
+    });
+
+
+    /**LOAD WHICH PRICE BAND HAS BEEN SELECTED */
+    priceBands.forEach(bandName => {
+        if (boxChecked != bandName[0]) {
+            document.getElementById("c"+bandName[0]).checked = false;
+            boxChecked = localStorage.getItem("boxChecked");
+        } else {
+            document.getElementById("c"+bandName[0]).checked = true;
+        }
+
+    });
+
+    console.log(`%cPreloaded Box-Click to storage: \n${boxChecked}`, `color: yellow`);
+
 }
 
-document.getElementById("numInRow").value = numinRowInput;
 
 
-/** SET VALUES OF EACH PRICE BAND */
-priceBands.forEach(bandName => {
-    if (bandName[0] != "" && localStorage.getItem(bandName[0]) != null) {
-        priceBandPrices[bandName[0]] = localStorage.getItem(bandName[0]);
-        document.getElementById(bandName[0]).value = priceBandPrices[bandName[0]];
-    } else {
-        updatePriceBands(1);
-    }
-    
-/** WHEN CLICK A BOX, UPDATE HANDLING */
-    document.getElementById("c"+bandName[0]).onclick = () => {
-        boxChecked = bandName[0];
-        handleClicks();
-    }
-});
+
 
 /** Fired when you update your Price Band value input */
 function updatePriceBands(int) {
+    console.log("triggered");
     priceBands.forEach(bandName => {
         let value = document.getElementById(bandName[0]).value;
         if (value > 999.99) {
@@ -98,18 +124,7 @@ function updatePriceBands(int) {
 }
 
 
-/**LOAD WHICH PRICE BAND HAS BEEN SELECTED */
-priceBands.forEach(bandName => {
-    if (boxChecked != bandName[0]) {
-        document.getElementById("c"+bandName[0]).checked = false;
-        boxChecked = localStorage.getItem("boxChecked");
-    } else {
-        document.getElementById("c"+bandName[0]).checked = true;
-    }
 
-});
-
-console.log(`%cPreloaded Box-Click to storage: \n${boxChecked}`, `color: yellow`);
 
 
 
