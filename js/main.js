@@ -6,5 +6,4 @@ var pageTitle = "TPT"
 
 
 
-updateButtons(1);
-updateButtons();
+
