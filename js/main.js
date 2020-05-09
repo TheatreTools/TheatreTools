@@ -1,9 +1,7 @@
-var pageTitle = "TPT"
-
-
-
-//document.getElementById("pageTitle").innerHTML = pageTitle;
-
+window.onload = (event) => {
+    window.location.replace("/home");
+    console.log("Tried")
+  };
 
 
 
