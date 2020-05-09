@@ -27,7 +27,7 @@ let totalPrice = 0;
 
 let removeWarning;
 
-
+console.log("Defined Variables")
 /**Set Inputs and pull from cookies. */
 let rowInput = localStorage.getItem("rowInput");
 if (rowInput == "" || rowInput == undefined) {
