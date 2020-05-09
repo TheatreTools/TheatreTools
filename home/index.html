@@ -6,12 +6,10 @@
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 
-<link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/css/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
-<link href="https://unpkg.com/tabulator-tables@4.6.2/dist/css/tabulator.min.css" rel="stylesheet">
-<script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.6.2/dist/js/tabulator.min.js"></script>
-<script lang="javascript" src="xlsx.full.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 
 </head>
 
@@ -21,9 +19,10 @@
 			<div id="menu">
 				<ul>
 					<li class="current_page_item"><a href="#" accesskey="1" title="">Home</a></li>
-					<li><a href="totalSeater.html" accesskey="2" title="">Total Seater</a></li>
+					<li><a href="/totalSeater" accesskey="2" title="">Total Seater</a></li>
 					<li><a href="#" accesskey="3" title="">About</a></li>
 					<li><a href="#" accesskey="4" title="">Contact</a></li>
+	<!--			<li><a href="#" accesskey="5" title="">Contact Us</a></li>	-->
 				</ul>
 			</div>
 		</div>
@@ -33,13 +32,32 @@
     <div id="wrapper1">
 		<div id="welcome" class="container">
             <div class="title">
-				<h2>Venue List</h2>
-				<span class="byline">List of UK Venues and Information.</span>
+				<h2>Theatre Tools</h2>
+				<span class="byline">Providing creatives with tools for making great theatre.</span>
              </div>
              <div class="content">
-                 <div id="download">DOWNLOAD COPY</div><br><br>
-                <div id="example-table"></div>
+				 <center>
+                <div class="grid" data-masonry='{ "columnWidth": 10, "itemSelector": ".grid-item" }'>
 
+                    <a href="/totalSeater"><div class="grid-item grid-item--width3 grid-item--height3">
+						<img src="/assets/totalSeater.png"></div>
+					</a>
+
+                    <a href="/venueList"><div class="grid-item grid-item--width2 grid-item--height3"> 
+						<img src="/assets/venueList.png"></div>
+					</a>
+                    <div class="grid-item grid-item--width2"> </div>
+                    <div class="grid-item">TOOLS WE PROVIDE</div>
+                    <div class="grid-item grid-item--width3">TOOLS WE PROVIDE</div>
+                    <div class="grid-item grid-item--height3">TOOLS WE PROVIDE</div>
+                    <div class="grid-item">TOOLS WE PROVIDE</div>
+                    <div class="grid-item grid-item--width2">TOOLS WE PROVIDE</div>
+					<div class="grid-item grid-item--width3">Total Seater</div>
+					<div class="grid-item grid-item--width3">Total Seater</div>
+					<div class="grid-item grid-item--width3">Total Seater</div>
+					
+                  </div>
+				</center>
              </div>
         </div>
     </div>
@@ -58,13 +76,7 @@
 		</ul>
 		<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 	</div>
-
-    <script src="main.js"></script>
-    <script src="venueList.js"></script>
-
-
-    </body>
-    
+	</body>
 
 
 </body>
