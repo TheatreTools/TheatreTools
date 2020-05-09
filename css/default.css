@@ -572,7 +572,10 @@
 
 
 	/* ADDED BY JONATHAN TAYLOR **/
-	
+	.title {
+		align-self: center;
+		text-align: center;
+	}	
 
 	#priceBands {
 		display: inline-block;
@@ -627,6 +630,7 @@
 .grid-item {
 	width: 160px;
 	height: 120px;
+	margin: 10px;
 	float: left;
 	background: black;
 	border: 2px solid #333;
