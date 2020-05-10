@@ -1,8 +1,6 @@
 var title = "Theatre Tools";
 var keywords = "";
 var description = "Great tools to make better theatre.";
-var faviconLoc = "/assets/favicon.ico";
-
 
 const cssFiles = [
     "default", "fonts"
@@ -25,11 +23,6 @@ loadContent();
 loadFooter();
 
 function loadCss() {
-    const titleHeader = document.createElement("title");
-    titleHeader.innerText = title;
-    document.head.appendChild(titleHeader);
-
-
     cssFiles.forEach(name => {
         const tag = document.createElement("link");
         tag.href = `/css/${name}.css`;
@@ -38,19 +31,6 @@ function loadCss() {
         tag.media = "all";
         document.head.appendChild(tag);
     });
-
-    const shortcutIcon = document.createElement("link");
-    shortcutIcon.rel = "shortcut icon";
-    shortcutIcon.href = faviconLoc;
-    shortcutIcon.type = "image/x-icon";
-
-    const faivconLoad = document.createElement("link");
-    faivconLoad.rel = "icon";
-    faivconLoad.href = faviconLoc;
-    faivconLoad.type = "image/x-icon";
-
-    document.head.appendChild(shortcutIcon);
-    document.head.appendChild(faivconLoad);
 }
 
 
