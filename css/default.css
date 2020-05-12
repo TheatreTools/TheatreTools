@@ -695,6 +695,30 @@
 }
 
 
+
+
+.contractItem {
+	display: block;
+	text-align: justify;
+	margin-top: 0;
+	width: 30em;
+	margin: 5em;
+}
+
+
+.define {
+	transition: 200ms ease;
+	cursor: pointer;
+}
+
+.define:hover {
+	color: blue;
+
+}
+
+
+
+
 	/***********/
 	/* COLOURED BLOCKS */
 	/**********/
