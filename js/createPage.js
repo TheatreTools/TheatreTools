@@ -2,6 +2,17 @@ var title = "Theatre Tools";
 var keywords = "";
 var description = "Great tools to make better theatre.";
 
+const div = "div";
+const img = "img";
+const h2 = "h2";
+const span = "span";
+const ul = "ul";
+const a = "a";
+const li = "li";
+const br = "br";
+const p = "p";
+const center = "center";
+
 const cssFiles = [
     "default", "fonts"
 ];
@@ -9,7 +20,8 @@ const cssFiles = [
 const sitePages = [
     ["home", "Home", 1],
     ["totalSeater", "Total Seater", 2],
-    ["venueList", "Venue List", 2]
+    ["venueList", "Venue List", 2],
+    ["contractExplorer", "Contracts", 2],
 ];
 
 
@@ -162,5 +174,50 @@ function loadFooter() {
     para.innerHTML = "<p style='font-size: 0.7em'>This is an open-source project hosted on GitHub.</p>";
     outer.appendChild(para);
 
+
+}
+
+
+function createNewElement(type, classInp, idInp, parent, innerHTML, innerText, srcInp, width, height, size, color, margin, inpType, onInput) {
+    if(type != 0 && parent != 0) {
+        const element = document.createElement(type);
+        if (classInp != 0) {
+            element.className = classInp;
+        }
+        if(idInp != 0) {
+            element.id = idInp;
+        }
+        if(innerHTML != 0) {
+            element.innerHTML = innerHTML;
+        }
+        if(innerText != 0) {
+            element.innerText = innerText;
+        }
+        if (srcInp != 0) {
+            element.src = srcInp;
+        }
+        if (inpType != 0) {
+            element.type = inpType;
+        }
+        if (width !=0) {
+            element.style.width = width;
+        }
+        if (height != 0) {
+            element.style.height = height;
+        }
+        if (size != 0) {
+            element.style.fontSize = size;
+        }
+        if (color != 0) {
+            element.style.color = color;
+        }
+        if (margin != 0) {
+            element.style.margin = margin;
+        }
+        if (onInput != 0) {
+            element.setAttribute("onclick", onInput);
+        }
+        document.getElementById(parent).appendChild(element);
+    }
 
 }
