@@ -1,22 +1,60 @@
 createNewElement(div, "title", "title", "welcome", 0, 0, 0, 0, 0, 0, 0, 0, 0);
 createNewElement(h2, 0, 0, "title", 0, "Contract Explorer", 0, 0, 0, 0, 0);
 createNewElement(span, "byLine", 0, "title", 0, "Interactive Contract Explorer", 0, 0, 0, 0,0,0, 0);
+
+createNewElement(br, 0, 0, "welcome", 0,0,0,0,0,0,0,0,0);
+
+createNewElement(div, 0, "contractInfoBox", "welcome", 0, 0, 0, 0, 0, 0, 0, 0);
+createNewElement(br, 0, 0, "contractInfoBox", 0,0,0,0,0,0,0,0,0);
+
+
+createNewElement(span, 0, "buttonLabel", "contractInfoBox", "<b>Define</b>", 0);
+createNewElement(div, "onoffswitch", 0, "contractInfoBox", "<input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' checked id='defineCheck' oninput='checkBox()'> <label class='onoffswitch-label' for='defineCheck'> <span class='onoffswitch-inner'></span> <span class='onoffswitch-switch'></span> </label>", 0, 0, 0);
+createNewElement(br, 0, 0, "contractInfoBox", 0,0,0,0,0,0,0,0,0);
+createNewElement(br, 0, 0, "contractInfoBox", 0,0,0,0,0,0,0,0,0);
+createNewElement(span, 0, "buttonLabel", "contractInfoBox", "<b>Link</b>", 0);
+createNewElement(div, "onoffswitch", 0, "contractInfoBox", "<input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='linkCheck' oninput='checkBox()'> <label class='onoffswitch-label' for='linkCheck'> <span class='onoffswitch-inner'></span> <span class='onoffswitch-switch'></span> </label>", 0, 0, 0);
+createNewElement(br, 0, 0, "contractInfoBox", 0,0,0,0,0,0,0,0,0);
+createNewElement(br, 0, 0, "contractInfoBox", 0,0,0,0,0,0,0,0,0);
+createNewElement(span, 0, "buttonLabel", "contractInfoBox", "<b>Explain</b>", 0);
+createNewElement(div, "onoffswitch", 0, "contractInfoBox", "<input type='checkbox' name='onoffswitch' class='onoffswitch-checkbox' id='explainCheck' oninput='checkBox()'> <label class='onoffswitch-label' for='explainCheck'> <span class='onoffswitch-inner'></span> <span class='onoffswitch-switch'></span> </label>", 0, 0, 0);
+
+
+/*
+createNewElement("input", 0, "linkCheck", "contractInfoBox", 0,0,0,0,0,0,0,"3em", "checkbox", "checkBox()");
+document.getElementById("linkCheck").checked = false;
+
+createNewElement("input", 0, "explainCheck", "contractInfoBox", 0,0,0,0,0,0,0,"3em", "checkbox", "checkBox()");
+document.getElementById("explainCheck").checked = false;
+*/
+
+createNewElement(div, 0, "infoBox", "welcome", 0,0,0,0,0,0,0,0);
+createNewElement(p, 0, "infoBoxText", "infoBox", 0,0,0,0,0,0,0,0);
+
 createNewElement(div, "content", "content", "welcome", 0, 0, 0, 0, 0, 0, 0);
+/*
+let mouseDown = false;
+document.getElementById("contractInfoBox").onmousedown = () => {
+    document.getElementById("contractInfoBox").style.backgroundColor = "grey";
+    mouseDown = true;
+};
+document.getElementById("contractInfoBox").touchstart = () => {
+    mouseDown = true;
+};
+document.getElementById("wrapper1").onmouseup = () => {
+    if(mouseDown) {
+        document.getElementById("contractInfoBox").style.left = event.clientX - 50;
+        document.getElementById("contractInfoBox").style.top = event.clientY - 50;
+        document.getElementById("contractInfoBox").style.backgroundColor = "white";
+        mouseDown = false;
+    }
+};
+*/
 
-createNewElement(br, 0, 0, "content", 0,0,0,0,0,0,0,0,0);
-createNewElement(br, 0, 0, "content", 0,0,0,0,0,0,0,0,0);
-createNewElement(center, 0, "center", "content", 0,0,0,0,0,0,0,0,0);
+checkBox();
 
 
-createNewElement("input", 0, "defineCheck", "center", 0,0,0,0,0,0,0,0, "checkbox", "checkBox()");
-
-createNewElement(br, 0, 0, "center", 0,0,0,0,0,0,0,0,0);
-createNewElement(br, 0, 0, "center", 0,0,0,0,0,0,0,0,0);
-
-createNewElement(h2, 0, 0, "center", 0, "Licence", 0,0,0,0,0,0,0,0);
-
-
-
+// reateNewElement(type, classInp, idInp, parent, innerHTML, innerText, srcInp, width, height, size, color, margin, inpType, onInput) {
 
 /*
 Licence
