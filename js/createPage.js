@@ -117,6 +117,19 @@ function loadFooter() {
     titleText.innerText = ""
     title.appendChild(titleText);
 
+    const logo = document.createElement("img");
+    logo.src = "/assets/favicon/white_main_logo.png";
+    logo.style.width = "3em"
+    logo.style.display = "inline-block";
+    title.appendChild(logo);
+
+    let i = 0;
+    while (i < 2) {
+    const additional = document.createElement("br");
+    title.appendChild(additional);
+    i++
+    }
+
     const byLineText = document.createElement("span")
     byLineText.className = "byLine";
     byLineText.style.fontSize = "1em";
