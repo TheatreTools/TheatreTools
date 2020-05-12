@@ -18,14 +18,25 @@ center.appendChild(gridMasonry);
 addItem("2", "3", "venueList");
 addItem("3", "3", "totalSeater");
 addItem("2", "3", "contractExplorer");
-addItem("3", "3", "marketingPlan")
+addItem("3", "3", "marketingPlan");
+addItem('2', "3", "theatreCastingToolkit");
+addItem("2", "3", "budgetExplorer");
+document.getElementById("theatreCastingToolkit").href = "https://www.theatrecastingtoolkit.org/";
+document.getElementById("theatreCastingToolkit").target = "_blank";
+addItem("3", "3", "stageOne");
+document.getElementById("stageOne").href = "https://www.stageone.uk.com/";
+document.getElementById("stageOne").target = "_blank";
+
 
 function addItem(width, height, url) {
     var link = document.createElement("a");
+    link.style.cursor = "pointer";
+    link.id = `${url}`;
     link.href = `/${url}`;
     gridMasonry.appendChild(link);
 
     var item = document.createElement("div");
+    item.style.cursor = "pointer";
     item.className = `grid-item grid-item--width${width} grid-item--height${height}`;
     link.appendChild(item);
 
