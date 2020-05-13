@@ -388,7 +388,6 @@
 
 	.contractItem
 	{
-		align-self: center;
 		text-align: justify;
 		width: 30em;
 		margin-right: auto;
@@ -428,14 +427,14 @@
 		border-style: solid;
 		border-color: black;
 		transition: 300ms ease;
-		width: 10em;
+		width: 20em;
 		position: fixed;
 	}
 
 	#infoBoxText
 	{
 		font-size: 15px;
-		margin: auto;
+		margin: 10px;
 		opacity: 1;
 		transition: 300ms ease;
 	}
