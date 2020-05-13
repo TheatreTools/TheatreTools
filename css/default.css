@@ -100,6 +100,9 @@
 	.title
 	{
 		margin-bottom: 2em;
+		margin-right: auto;
+		margin-left: auto;
+		text-align: center;
 	}
 
 	.title h2
@@ -302,7 +305,7 @@
 		text-align: right;
 		border-color: black;
 		border-width: 1px;
-		background-image: url('pound-sign.png');
+		background-image: url('/assets/pound-sign.png');
 		background-position: 0px 3px;
 		background-size: 15%;
 		background-repeat: no-repeat;
