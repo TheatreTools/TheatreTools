@@ -1,7 +1,8 @@
-var title = "Theatre Tools";
-var keywords = "";
-var description = "Great tools to make better theatre.";
+/** TITLE, DESCRIPTION, KEYWORDS ARE SET IN HTML FILES */
+const title = "Theatre Tools";
+const description = "Great tools to make better theatre.";
 
+/** CONSTANTS FOR EASY USE */
 const div = "div";
 const img = "img";
 const h2 = "h2";
@@ -12,10 +13,12 @@ const li = "li";
 const br = "br";
 const p = "p";
 
+/** DEFINES DIFFERENT CSS FILES THAT CAN BE LOADED - USED IN LOADCSS() FUNCTION */
 const cssFiles = [
-    "default", "fonts"
+    "default", "fonts", "totalSeater"
 ];
 
+/** NAV-BAR NAVIGATION */
 const sitePages = [
     ["home", "Home", 1],
     ["totalSeater", "Total Seater", 2],
@@ -23,16 +26,25 @@ const sitePages = [
     ["contractExplorer", "Contracts", 2],
 ];
 
+/** VISIBLE SOCIAL MEDIA - DEFINED IN FOOTER */
+const socialMedia = [
+    ["twitter", "twitter.com/JonathanTaylorP"],
+    ["facebook", "facebook.com/JonathanTaylorProductions"],
+    ["github", "github.com/TheatreTools/TheatreTools"]
+];
 
+/** GETS CURRENT PAGE FROM PATH */
 const path = window.location.pathname;
 const pageName = path.split("/");
 console.log(pageName[1]);
 
+/** CALL FUNCTIONS */
 loadCss();
 loadHeader();
 loadContent();
 loadFooter();
 
+/** LOADS ALL CSS FILES AS DEFINED IN ARRAY */
 function loadCss() {
     cssFiles.forEach(name => {
         const tag = document.createElement("link");
@@ -44,7 +56,7 @@ function loadCss() {
     });
 }
 
-
+/** LOADS HEADER W/ NAVIGATION */
 function loadHeader() {
     const tag1 = document.createElement("div");
     tag1.id = "noLogo-header-wrapper";
@@ -75,7 +87,7 @@ function loadHeader() {
     const tag4 = document.createElement("ul");
     tag3.appendChild(tag4);
 
-
+/** ITERATES THROUGH PAGES FROM ARRAY */
     sitePages.forEach(page => {
         const pageTag = document.createElement("li");
         if (page[0] == pageName[1]) {
@@ -91,7 +103,7 @@ function loadHeader() {
 }
 
 
-
+/** LOAD BASIC COMPONENTS AND THEN LOADS CORRECT SCRIPT FOR INDIVIDUAL PAGE CONSTRUCTION */
 function loadContent() {
     const wrapper = document.createElement("div");
     wrapper.id = "wrapper1";
@@ -103,7 +115,7 @@ function loadContent() {
     wrapper.appendChild(container);
 
 
-
+/** INDIVIDUAL PAGE CONSTRUCTION */
     sitePages.forEach(page => {
         if(page[0] == pageName[1]) {
             const script = document.createElement("script");
@@ -114,7 +126,7 @@ function loadContent() {
 }
 
 
-
+/** LOADS FOOTER */
 function loadFooter() {
     const outer =  document.createElement("div");
     outer.id = "copyright";
@@ -151,12 +163,7 @@ function loadFooter() {
     contactBar.className = "contact";
     outer.appendChild(contactBar);
 
-    const socialMedia = [
-        ["twitter", "twitter.com/JonathanTaylorP"],
-        ["facebook", "facebook.com/JonathanTaylorProductions"],
-        ["github", "github.com/TheatreTools/TheatreTools"]
-    ];
-
+    /** USES SOCIAL MEDIA ARRAY */
     socialMedia.forEach(social => {
         const tag = document.createElement("li");
         contactBar.appendChild(tag);
@@ -172,11 +179,9 @@ function loadFooter() {
     para.style.fontSize = "0.7em";
     para.innerHTML = "<p style='font-size: 0.7em'>This is an open-source project hosted on GitHub.</p>";
     outer.appendChild(para);
-
-
 }
 
-
+/** FUNCTION FOR ADDING NEW ELEMENTS (SHORTCUT FOR OTHER PAGE CONSTRUCTION) */
 function createNewElement(type, classInp, idInp, parent, innerHTML, innerText, srcInp, width, height, size, color, margin, inpType, onInput) {
     if(type != 0 && parent != 0) {
         const element = document.createElement(type);
@@ -218,5 +223,4 @@ function createNewElement(type, classInp, idInp, parent, innerHTML, innerText, s
         }
         document.getElementById(parent).appendChild(element);
     }
-
 }
