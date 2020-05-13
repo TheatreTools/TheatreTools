@@ -1,0 +1,36 @@
+/*********************************************************************************/
+/* CSS for Total Seater                                                          */
+/*********************************************************************************/
+    #priceBands
+    {
+		display: inline-block;
+		padding: 0.5em 20em 0em;
+		margin-right: -500em;
+		height: 50em;
+		float: left;
+	}
+
+    #rows
+    {
+		background: white;
+		text-align: center;
+	}
+
+    #numinRow
+    {
+		background: white;
+		text-align:center;
+	}
+
+    #warning
+    {
+		display: fixed;
+		width: 10em;
+		color: red;
+		transition: 300ms ease;
+	}
+
+    input[type=checkbox]
+    {
+		cursor: pointer;
+	}
