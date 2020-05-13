@@ -11,7 +11,6 @@ const a = "a";
 const li = "li";
 const br = "br";
 const p = "p";
-const center = "center";
 
 const cssFiles = [
     "default", "fonts"

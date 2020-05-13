@@ -5,13 +5,15 @@
 	
 	body
 	{
-		margin: 0px;
+		margin: 0;
 		padding: 0px;
 		background: #333333;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 12pt;
 		font-weight: 400;
 		color: #000000;
+		height: 100%;
+		overflow: hidden;
 	}
 	
 	
@@ -517,6 +519,7 @@
 
 	#content
 	{
+		z-index: 0;
 	}
 
 /*********************************************************************************/
@@ -698,11 +701,11 @@
 
 
 .contractItem {
-	display: block;
+	align-self: center;
 	text-align: justify;
-	margin-top: 0;
 	width: 30em;
-	margin: 5em;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 
@@ -715,6 +718,102 @@
 	color: blue;
 
 }
+
+
+#contractInfoBox {
+	cursor: move;
+	background-color: white;
+	border-color: black;
+	border-style: solid;
+	border-radius: 2.5em;
+	border-width: 5px;
+	position: fixed;
+	width: 10em;
+	height: 9.7em;
+	right: 5em;
+	top: 40em;
+
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
+
+}
+
+#infoBox {
+	opacity: 0;
+	background: white;
+	border-style: solid;
+	border-color: black;
+	transition: 300ms ease;
+	width: 10em;
+	position: fixed;
+}
+
+#infoBoxText {
+	font-size: 15px;
+	margin: auto;
+	opacity: 1;
+	transition: 300ms ease;
+}
+
+
+/** BUTTONS **/
+
+.onoffswitch {
+	position: fixed; width: 56px;
+	display: inline;
+	float: right;
+	-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	
+}
+.onoffswitch-checkbox {
+	display: none;
+}
+.onoffswitch-label {
+	z-index: 2;
+    display: block; overflow: hidden; cursor: pointer;
+    height: 27px; padding: 0; line-height: 27px; 
+	border: 2px solid #dedede; border-radius: 27px;
+	margin-top: -1.5px;
+    background-color: #dedede;
+    transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 27px;
+    background: #FFFFFF;
+	position: fixed; margin-top: -1.5px;
+	height: 27px;
+    border: 2px solid #dedede; border-radius: 27px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+	background-color: #00FFFF;
+	margin-top: -1.5px;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+   border-color: #00FFFF;
+   margin-top: -1.5px;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+	margin-left: 20px;
+	
+}
+#buttonLabel {
+	float: left;
+	width: 10px;
+	margin-left: 12px;
+	margin-top: 2px;
+	margin-right: auto;
+}
+
+
+
 
 
 
