@@ -10,7 +10,7 @@ content.appendChild(gridMasonry);
 
 /** Creates each menu item */
 addItem("", "venueList");
-addItem("tall", "quizButton");
+addItem("tall", "quizzes");
 addItem("", "contractExplorer");
 addItem("",  "totalSeater");
 addItem("", "budgetExplorer");

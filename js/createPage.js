@@ -21,7 +21,7 @@ const cssFiles = [
 /** NAV-BAR NAVIGATION */
 const sitePages = [
     ["home", "Home", 1],
-    ["testKnowledge", "Test Knowledge", 2],
+    ["quizzes", "Quizzes", 2],
     ["totalSeater", "Total Seater", 2],
     ["venueList", "Venue List", 2],
     ["contractExplorer", "Contracts", 2],
