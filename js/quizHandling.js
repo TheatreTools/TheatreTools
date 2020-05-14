@@ -43,12 +43,13 @@ const questions = {
         
 }
 
-let numberOfQuestions = Object.keys(questions).length;
+let numberOfQuestions = 0//Object.keys(questions).length;
 let correctAnswer;
 let questionNumber;
 let questionId;
 let tried = 0;
 let score = 0;
+let clicked;
 
 function randomQuestion () {
     questionNumber = Math.floor(Math.random() * numberOfQuestions);
@@ -75,6 +76,7 @@ function randomQuestion () {
 }
 
 function loadQuestion() {
+    clicked = false;
     console.log(questionId);
     if(questions[questionId] != undefined) {
         document.getElementById("h2S").innerText = `Score: ${score}`;
@@ -88,7 +90,7 @@ function loadQuestion() {
     }
 
     document.getElementById("answerA").onmousedown = () => {
-        if (questions[questionId].answer == "A") {
+        if (questions[questionId].answer == "A" && !clicked) {
             document.getElementById("answerA").style.color = "green";
             console.log("%cCORRECT!", "color:green");
             score++;
@@ -97,17 +99,21 @@ function loadQuestion() {
                 document.getElementById("answerA").style.color = "inherit";
                 randomQuestion();
             }, 2000);
-        } else {
+            clicked = true;
+        } else if (!clicked) {
             document.getElementById("answerA").style.color = "red";
             console.log("%cCORRECT!", "color:red");
             correctAnswer = setTimeout(() =>{
                 document.getElementById("answerA").style.color = "inherit";
             }, 2000);
+        } else {
+            console.error("Already received point, no more clicking available");
+
         }
     }
 
     document.getElementById("answerB").onmousedown = () => {
-        if (questions[questionId].answer == "B") {
+        if (questions[questionId].answer == "B" && !clicked) {
             document.getElementById("answerB").style.color = "green";
             console.log("%cCORRECT!", "color:green");
             score++;
@@ -116,17 +122,21 @@ function loadQuestion() {
                 document.getElementById("answerB").style.color = "inherit";
                 randomQuestion();
             }, 2000);
-        } else {
+            clicked = true;
+        } else if (!clicked) {
             document.getElementById("answerB").style.color = "red";
             console.log("%cCORRECT!", "color:red");
             correctAnswer = setTimeout(() =>{
                 document.getElementById("answerB").style.color = "inherit";
             }, 2000);
+        } else {
+            console.error("Already received point, no more clicking available");
+
         }
     }
 
     document.getElementById("answerC").onmousedown = () => {
-        if (questions[questionId].answer == "C") {
+        if (questions[questionId].answer == "C" && !clicked) {
             document.getElementById("answerC").style.color = "green";
             console.log("%cCORRECT!", "color:green");
             score++;
@@ -135,61 +145,53 @@ function loadQuestion() {
                 document.getElementById("answerC").style.color = "inherit";
                 randomQuestion();
             }, 2000);
-        } else {
+            clicked = true;
+        } else if (!clicked) {
             document.getElementById("answerC").style.color = "red";
             console.log("%cCORRECT!", "color:red");
             correctAnswer = setTimeout(() =>{
                 document.getElementById("answerC").style.color = "inherit";
             }, 2000);
+        } else {
+            console.error("Already received point, no more clicking available");
+
         }
     }
-
-
 }
 
 function loadEnd() {
     document.getElementById("h2S").style.opacity = 0;
     document.getElementById("h2S").innerText = `Score: ${score}`;
-    document.getElementById("h2Q").innerText = "";
-    document.getElementById("h2A").innerText = "";
-    document.getElementById("h2B").innerText = "";
-    document.getElementById("h2C").innerText = "";
+    document.getElementById("testQuestion").style.display = "none";
+    document.getElementById("testAnswer").style.display = "none";
+    var all = document.getElementsByClassName('testAnswer');
+    for (var i = 0; i < all.length; i++) {
+        all[i].style.display = 'none';
+    }
 
     var elem = document.getElementById("testScore");
     var scoreText = document.getElementById("h2S");
     var pos = 87;
-    var topPos = 0;
+    var pos2 = 0;
+    var pos3 = 0;
     var id = setInterval(frame, 0.1);
     function frame() {
-      if (pos == 12) {
-        clearInterval(id);
-        var pos2 = 0;
-        var id2 = setInterval(frame, 1);
-        function frame() {
-            if(pos2 == 70) {
-                setTimeout(() =>{
-                    document.getElementById("h2S").style.opacity = 1;
-                    scoreText.innerText = `${score} out of ${numberOfQuestions}\n questions\n correct!`;
-                }, 100);
-                clearInterval(id2);
-            } else {
-                pos2++;
-                let size = pos2 + 125;
-                let margin = pos2 - 50;
-                if(margin < 0) {
-                    margin = 0;
-                }
-                scoreText.style.marginTop = margin + '%';
-                elem.style.height = pos2 + '%';
-                elem.style.width = pos2 + '%';
-                setTimeout(() =>{
-                    elem.style.fontSize = size + '%';
-                }, 500);
-            } 
+        /** WAIT UNTIL 15% RIGHT (COUNTING) */
+        if (pos == 15) {
+            scoreText.style.padding = '30%';
+            scoreText.style.fontSize = '500%';
+            setTimeout(() =>{
+                document.getElementById("h2S").style.opacity = 1;
+                scoreText.innerText = `${score} out of ${numberOfQuestions}\n questions\n correct!`;
+            }, 500);
+        } else {
+            pos--;
+            pos2+= 0.9722222222;
+            pos3 += 1.3333333333;
+            elem.style.right = pos + '%';
+            elem.style.width = pos2 + '%';
+            elem.style.height = pos3 + '%';
+
         }
-      } else {
-        pos--;
-        elem.style.left = pos + '%';
-      }
     }
 }
