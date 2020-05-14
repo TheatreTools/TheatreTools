@@ -5,35 +5,38 @@ document.getElementById("welcome").appendChild(content);
 
 /** Div that holds the individual menu items */
 const gridMasonry = document.createElement("div");
-gridMasonry.className = "grid";
+gridMasonry.className = "photo-grid";
 content.appendChild(gridMasonry);
 
 /** Creates each menu item */
-addItem("2", "3", "venueList");
-addItem("3", "3", "totalSeater");
-addItem("2", "3", "contractExplorer");
-addItem("3", "3", "marketingPlan");
-addItem('2', "3", "theatreCastingToolkit");
-addItem("2", "3", "budgetExplorer");
+addItem("", "venueList");
+addItem("tall", "quizButton");
+addItem("", "contractExplorer");
+addItem("",  "totalSeater");
+addItem("", "budgetExplorer");
+addItem("wide", "marketingPlan");
+
+
 
 /** Sets special links & targets for external links */
-document.getElementById("theatreCastingToolkit").href = "https://www.theatrecastingtoolkit.org/";
-document.getElementById("theatreCastingToolkit").target = "_blank";
-addItem("3", "3", "stageOne");
-document.getElementById("stageOne").href = "https://www.stageone.uk.com/";
-document.getElementById("stageOne").target = "_blank";
+//document.getElementById("theatreCastingToolkit").href = "https://www.theatrecastingtoolkit.org/";
+//document.getElementById("theatreCastingToolkit").target = "_blank";
+//document.getElementById("stageOne").href = "https://www.stageone.uk.com/";
+//document.getElementById("stageOne").target = "_blank";
 
 /** Function for adding Items */
-function addItem(width, height, url) {
-    const link = document.createElement("a");
-    link.style.cursor = "pointer";
-    link.id = `${url}`;
-    link.href = `/${url}`;
-    gridMasonry.appendChild(link);
+function addItem(cardType, url) {
     const item = document.createElement("div");
+    item.className = `card card-${cardType}`
     item.style.backgroundImage = `url('/assets/appImages/${url}.png')`;
     item.style.cursor = "pointer";
     /** THESE ARE SET SIZES WITHIN THE CSS FILE */
-    item.className = `grid-item grid-item--width${width} grid-item--height${height}`;
-    link.appendChild(item);
+    gridMasonry.appendChild(item);
+
+    const link = document.createElement("a");
+    link.style.cursor = "pointer";
+    link.className = "hiddenClickable"
+    link.href = `/${url}`;
+    item.appendChild(link);
+
 }

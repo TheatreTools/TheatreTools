@@ -1,6 +1,46 @@
 const questions = {
-    a: {question: "What is 50 plus 50?", optionA: "100", optionB: "150", optionC: "500", answer: "100", asked: false},
-    b: {question: "What is meant by the Resident Manager?", optionA: "The Producer who is hiring the venue.", optionB: "The Company who runs the Venue.", optionC: "The theatre company who is in residence at the venue.", answer: "The Company who runs the Venue.", asked: false},
+    a: {question: "How would you calculate the Gross Potential of an event?", 
+        optionA: "A total of all seats available, taking price bands into account after tax or other fee deductions.",
+        optionB: "A total of all seats available, taking price bands into account before tax or other fee deductions.",
+        optionC: "The total profit a Producer can make on an event.",
+        answer: "B", asked: false},
+
+    b: {question: "What is meant by the Resident Manager?",
+        optionA: "The Producer who is hiring the venue.",
+        optionB: "The Company who runs the Venue.",
+        optionC: "The theatre company who is in residence at the venue.",
+        answer: "B", asked: false},
+
+    c: {question: "What is the purpose of a Schedule attached to a contract?",
+        optionA: "They are used by the Producer to inform the venue of their performance schedule.",
+        optionB: "They only ever outline the time schedule of the event.",
+        optionC: "They can be used to clarify specific details for events when using general terms.",
+        answer: "C", asked: false},
+
+    d: {question: "What is meant by Recoupment?",
+        optionA: "The total profit a Producer can make on an event.",
+        optionB: "The recovery of money, usually through Net Profit. This is the point when a show begins to profit.",
+        optionC: "The point at which a show begins to pay back investors.",
+        answer: "B", asked: false},
+    
+    e: {question: "What union(s) represent Stage Managers?",
+        optionA: "Equity",
+        optionB: "BECTU, SOLT, UK Theatre",
+        optionC: "Equity & BECTU",
+        answer: "A", asked: false},
+    
+    f: {question: "What is SOLT?",
+        optionA: "The Society of London Theatre, a government body set up to manage the West End tourism market.",
+        optionB: "The Society of London Theatre, a union representing Theatre Producers.",
+        optionC: "The Society of London Theatre, comprising of West-End Theatre Producers and Venue Managers.",
+        answer: "C", asked: false},
+
+    f: {question: "What is meant by a Theatre's Levy?",
+        optionA: "The running costs & other fees passed onto a Producer at settlement",
+        optionB: "A government tax on all theatre tickets.",
+        optionC: "The point at which a show begins to pay back investors.",
+        answer: "A", asked: false},
+        
 }
 
 let numberOfQuestions = Object.keys(questions).length;
@@ -48,7 +88,7 @@ function loadQuestion() {
     }
 
     document.getElementById("answerA").onmousedown = () => {
-        if (document.getElementById("h2A").innerText == questions[questionId].answer) {
+        if (questions[questionId].answer == "A") {
             document.getElementById("answerA").style.color = "green";
             console.log("%cCORRECT!", "color:green");
             score++;
@@ -67,7 +107,7 @@ function loadQuestion() {
     }
 
     document.getElementById("answerB").onmousedown = () => {
-        if (document.getElementById("h2B").innerText == questions[questionId].answer) {
+        if (questions[questionId].answer == "B") {
             document.getElementById("answerB").style.color = "green";
             console.log("%cCORRECT!", "color:green");
             score++;
@@ -86,7 +126,7 @@ function loadQuestion() {
     }
 
     document.getElementById("answerC").onmousedown = () => {
-        if (document.getElementById("h2C").innerText == questions[questionId].answer) {
+        if (questions[questionId].answer == "C") {
             document.getElementById("answerC").style.color = "green";
             console.log("%cCORRECT!", "color:green");
             score++;
@@ -126,10 +166,10 @@ function loadEnd() {
         var pos2 = 0;
         var id2 = setInterval(frame, 1);
         function frame() {
-            if(pos2 == 75) {
+            if(pos2 == 70) {
                 setTimeout(() =>{
                     document.getElementById("h2S").style.opacity = 1;
-                    scoreText.innerText = `${score} out of ${numberOfQuestions}\n questions`;
+                    scoreText.innerText = `${score} out of ${numberOfQuestions}\n questions\n correct!`;
                 }, 100);
                 clearInterval(id2);
             } else {
