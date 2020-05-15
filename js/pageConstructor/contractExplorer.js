@@ -31,7 +31,7 @@ document.getElementById("explainCheck").checked = false;
 createNewElement(div, 0, "infoBox", "welcome", 0,0,0,0,0,0,0,0);
 createNewElement(p, 0, "infoBoxText", "infoBox", 0,0,0,0,0,0,0,0);
 
-createNewElement(div, "content", "content", "welcome", 0, 0, 0, 0, 0, 0, 0);
+createNewElement(div, "content noSelect", "content", "welcome", 0, 0, 0, 0, 0, 0, 0);
 /*
 let mouseDown = false;
 document.getElementById("contractInfoBox").onmousedown = () => {

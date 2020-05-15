@@ -51,6 +51,10 @@
 		margin: 0px auto;
 	}
 
+	.noSelect
+	{
+		-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	}
 /*********************************************************************************/
 /* Social Icon Styles                                                            */
 /*********************************************************************************/
@@ -402,9 +406,12 @@
 	.contractItem
 	{
 		text-align: justify;
-		width: 30em;
+		width: 40%;
+		margin-top: 10px;
 		margin-right: auto;
 		margin-left: auto;
+		transition: 200ms color;
+		display: inline-block;
 	}
 
 	.define
@@ -451,6 +458,8 @@
 		opacity: 1;
 		transition: 300ms ease;
 	}
+
+
 
 /*********************************************************************************/
 /* CSS BUTTONS                                                                   */
@@ -522,6 +531,35 @@
 /*********************************************************************************/
 /* COLOURED BLOCKS                                                               */
 /*********************************************************************************/
+
+	.block 
+	{
+		position: absolute;
+		margin-top: 1.5%;
+		border-radius: 5px;
+		padding-right: 1%;
+		left: 26%;
+	}
+
+	@media screen and (min-width: 1000px)
+	{
+		.block 
+		{
+			margin-top: 0.85%;
+		}
+	}
+
+
+
+	.clear
+	{
+		display: inline;
+		background-color: none;
+		width: 12px;
+		height: 12px;
+		margin-right: 12px;
+
+	}
 
 	.red
 	{
