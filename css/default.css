@@ -158,7 +158,7 @@
 		display: inline-block;
 	}
 	
-	#menu li a, #menu li span
+	#menu li a, #menu li
 	{
 		display: inline-block;
 		margin-left: 0.50em;
@@ -169,17 +169,18 @@
 		font-weight: 600;
 		text-transform: uppercase;
 		outline: 0.2;
-		color: #FFF;		
+		color: #FFF;
+		transition: transform 300ms ease;		
 	}
 	
-	#menu li:hover a, #menu li.active a, #menu li.active span
+	#menu li:hover a, #menu li.active a, #menu li.active
 	{
 		border-width: 0px;
 		border-left-width: 1.5px;
 		border-color: cyan;
-		border-style: solid;
 		color: cyan;
-		transition: 200ms ease;
+		transform: scale(1.2, 1.2);
+		transition: 300ms ease;
 	}
 	
 	#menu .current_page_item a
@@ -198,6 +199,11 @@
 	#wrapper1
 	{
 		background: #dedede;
+	}
+
+	#mocha
+	{
+		z-index: 999;
 	}
 
 /*********************************************************************************/

@@ -17,7 +17,6 @@ addItem("", "budgetExplorer");
 addItem("wide", "marketingPlan");
 
 
-
 /** Sets special links & targets for external links */
 //document.getElementById("theatreCastingToolkit").href = "https://www.theatrecastingtoolkit.org/";
 //document.getElementById("theatreCastingToolkit").target = "_blank";
