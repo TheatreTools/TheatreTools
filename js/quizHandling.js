@@ -43,7 +43,7 @@ const questions = {
         
 }
 
-let numberOfQuestions = 0//Object.keys(questions).length;
+let numberOfQuestions = 1;//Object.keys(questions).length;
 let correctAnswer;
 let questionNumber;
 let questionId;
@@ -51,112 +51,91 @@ let tried = 0;
 let score = 0;
 let clicked;
 
-function randomQuestion () {
-    questionNumber = Math.floor(Math.random() * numberOfQuestions);
-    questionId = String.fromCharCode(97+questionNumber);
-    /** Ability to double questions to 52 *//*
-    if (Math.random() > 0.5) {
-        console.log("Rolled to add additional!")
-        questionNumber = Math.floor(Math.random() * 26);
-        let additional = String.fromCharCode(97+questionNumber);
-        questionId = `${questionId}${additional}`;
-    }*/
+function randomQuestion (noOfQuests) {
+    questionNumber = Math.floor(Math.random() * noOfQuests);
+    questionId = String.fromCharCode(97 + questionNumber);
     tried ++;
-    if (questions[questionId].asked) {
-        if (tried <= numberOfQuestions) {
-            tried --;
-            randomQuestion();
+    if(noOfQuests === undefined) {
+        return null;
+    }
+    return questionId;
+}
+
+function canLoadQuestion (questId, objectInp, noOfQuests) {
+    if(objectInp[questId] != undefined) {
+        if (objectInp[questId].asked) {
+            if (tried <= noOfQuests) {
+                //Cannot Load this Question
+                tried --;
+                return false;
+            } else {
+                //No More Questions available...
+                return null;
+            }
         } else {
-            console.warn("No more questions!");
-            loadEnd();
+            //Can Load Question
+            return true;
         }
     } else {
-        loadQuestion();
+        console.log("Question is undefined!");
+        return false;
     }
 }
 
-function loadQuestion() {
-    clicked = false;
-    console.log(questionId);
-    if(questions[questionId] != undefined) {
+
+function loadQuestion(objectInp, questId) {
+
+    document.getElementById("h2S").innerText = `Score: ${score}`;
+    document.getElementById("h2Q").innerText = objectInp[questId].question;
+    document.getElementById("h2A").innerText = objectInp[questId].optionA;
+    document.getElementById("h2B").innerText = objectInp[questId].optionB;
+    document.getElementById("h2C").innerText = objectInp[questId].optionC;
+    objectInp[questId].asked = true;
+
+    for (var i = 0; i < 3; i++) {
+        let answerId = String.fromCharCode(97+i);
+        answerId = answerId.toUpperCase();
+        let answerString = `answer${answerId}`;
+        document.getElementById(answerString).onmousedown = () => {
+            clickHandler(objectInp, questId, answerId, answerString);
+        }  
+    }
+}
+
+function clickHandler(objectInp, questId, answerId, answerString) {
+    if (objectInp[questId].answer == answerId && !clicked) {
+        document.getElementById(answerString).style.color = "green";
+        console.log("%cCORRECT!", "color:green");
+        score++;
         document.getElementById("h2S").innerText = `Score: ${score}`;
-        document.getElementById("h2Q").innerText = questions[questionId].question;
-        document.getElementById("h2A").innerText = questions[questionId].optionA;
-        document.getElementById("h2B").innerText = questions[questionId].optionB;
-        document.getElementById("h2C").innerText = questions[questionId].optionC;
-        questions[questionId].asked = true;
+        correctAnswer = setTimeout(() =>{
+            document.getElementById(answerString).style.color = "inherit";
+            newQuestion();
+        }, 2000);
+        clicked = true;
+    } else if (!clicked) {
+        document.getElementById(answerString).style.color = "red";
+        console.log("%cINCORRECT!", "color:red");
+        correctAnswer = setTimeout(() =>{
+            document.getElementById(answerString).style.color = "inherit";
+        }, 2000);
     } else {
-        console.log("Question is undefined!");
+        console.warn("Already received point, no more clicking available");
+        return null;
     }
+}
 
-    document.getElementById("answerA").onmousedown = () => {
-        if (questions[questionId].answer == "A" && !clicked) {
-            document.getElementById("answerA").style.color = "green";
-            console.log("%cCORRECT!", "color:green");
-            score++;
-            document.getElementById("h2S").innerText = `Score: ${score}`;
-            correctAnswer = setTimeout(() =>{
-                document.getElementById("answerA").style.color = "inherit";
-                randomQuestion();
-            }, 2000);
-            clicked = true;
-        } else if (!clicked) {
-            document.getElementById("answerA").style.color = "red";
-            console.log("%cCORRECT!", "color:red");
-            correctAnswer = setTimeout(() =>{
-                document.getElementById("answerA").style.color = "inherit";
-            }, 2000);
-        } else {
-            console.error("Already received point, no more clicking available");
 
-        }
-    }
-
-    document.getElementById("answerB").onmousedown = () => {
-        if (questions[questionId].answer == "B" && !clicked) {
-            document.getElementById("answerB").style.color = "green";
-            console.log("%cCORRECT!", "color:green");
-            score++;
-            document.getElementById("h2S").innerText = `Score: ${score}`;
-            correctAnswer = setTimeout(() =>{
-                document.getElementById("answerB").style.color = "inherit";
-                randomQuestion();
-            }, 2000);
-            clicked = true;
-        } else if (!clicked) {
-            document.getElementById("answerB").style.color = "red";
-            console.log("%cCORRECT!", "color:red");
-            correctAnswer = setTimeout(() =>{
-                document.getElementById("answerB").style.color = "inherit";
-            }, 2000);
-        } else {
-            console.error("Already received point, no more clicking available");
-
-        }
-    }
-
-    document.getElementById("answerC").onmousedown = () => {
-        if (questions[questionId].answer == "C" && !clicked) {
-            document.getElementById("answerC").style.color = "green";
-            console.log("%cCORRECT!", "color:green");
-            score++;
-            document.getElementById("h2S").innerText = `Score: ${score}`;
-            correctAnswer = setTimeout(() =>{
-                document.getElementById("answerC").style.color = "inherit";
-                randomQuestion();
-            }, 2000);
-            clicked = true;
-        } else if (!clicked) {
-            document.getElementById("answerC").style.color = "red";
-            console.log("%cCORRECT!", "color:red");
-            correctAnswer = setTimeout(() =>{
-                document.getElementById("answerC").style.color = "inherit";
-            }, 2000);
-        } else {
-            console.error("Already received point, no more clicking available");
-
-        }
-    }
+function newQuestion() {
+    let loading = canLoadQuestion(randomQuestion(numberOfQuestions), questions, numberOfQuestions);
+    if (loading) {
+        clicked = false;
+        console.log(`Loading Question: ${questionId.toUpperCase()}`);
+        loadQuestion(questions, questionId);
+    } else if (loading === null) { 
+        console.log("Going to end screen...");
+        loadEnd();
+    } 
 }
 
 function loadEnd() {
@@ -164,17 +143,17 @@ function loadEnd() {
     document.getElementById("h2S").innerText = `Score: ${score}`;
     document.getElementById("testQuestion").style.display = "none";
     document.getElementById("testAnswer").style.display = "none";
-    var all = document.getElementsByClassName('testAnswer');
-    for (var i = 0; i < all.length; i++) {
+    const all = document.getElementsByClassName('testAnswer');
+    for (let i = 0; i < all.length; i++) {
         all[i].style.display = 'none';
     }
 
-    var elem = document.getElementById("testScore");
-    var scoreText = document.getElementById("h2S");
-    var pos = 87;
-    var pos2 = 0;
-    var pos3 = 0;
-    var id = setInterval(frame, 0.1);
+    const elem = document.getElementById("testScore");
+    const scoreText = document.getElementById("h2S");
+    let pos = 87;
+    let pos2 = 0;
+    let pos3 = 0;
+    const id = setInterval(frame, 0.1);
     function frame() {
         /** WAIT UNTIL 15% RIGHT (COUNTING) */
         if (pos == 15) {

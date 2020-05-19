@@ -19,4 +19,4 @@ createNewElement(h2, 0, "h2B", "answerB", 0, 0);
 createNewElement(div, "testAnswer", "answerC", "testAnswer", "", 0);
 createNewElement(h2, 0, "h2C", "answerC", 0, 0);
 
-randomQuestion();
+newQuestion();

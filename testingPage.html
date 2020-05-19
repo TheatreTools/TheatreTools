@@ -18,22 +18,52 @@
 
 
 <!-- ESSENTIAL THINGS-->
-<title>Theatre Tools</title>
+<title>TESTS - Theatre Tools</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+<link href="/css/testingPageDesign.css" rel="stylesheet" text="text/css" media = "all">
 
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 
+<script>
+    mocha.setup('bdd'); // minimal setup
+  </script>
+  <script>
+    // chai has a lot of stuff, let's make assert global
+    let assert = chai.assert;
+  </script>
 
 </head>
 
 
 
 <body>
-	<script src="/js/createPage.js"></script>
+    <script src="/test.js"></script>
+    <script defer src="/js/quizHandling.js"></script>
+	<div id="mocha"></div>
 
+
+    <div class="invis" id="h2S"></div>
+    <div class="invis"  id="h2Q"></div>
+    <div class="invis"  id="answerA">
+        <div class="invis"  id="h2A">Answer A</div>
+    </div>
+    <div class="invis"  id="answerB">
+        <div class="invis"  id="h2B">Answer B</div>
+    </div>
+    <div class="invis"  id="answerC">
+        <div class="invis"  id="h2C">Answer C</div>
+    </div>
+
+	<script>
+        
+        mocha.run();
+      </script>
+      
+      
 </body>
