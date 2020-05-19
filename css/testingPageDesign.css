@@ -1,0 +1,65 @@
+body
+{
+    font-size: 8px;
+}
+
+#mocha
+{
+    color: black;
+
+}
+
+a
+{
+    font-style: normal;
+     color: black;
+}
+
+.progress canvas
+{
+    color: white;
+    border-radius: 20px;
+    transform: scale(1.1, 1.1);
+    padding: 5px;
+    margin: 5px;
+    transition: transform 300ms ease;
+    display: block;
+    position: relative;
+    animation: mymove 3s;
+    animation-iteration-count: infinite;
+}
+
+.passes, .failures, .duration
+{
+    font-size: 1.2rem;
+}
+
+li
+{
+    color: black;
+    list-style: none;
+}
+
+.passes 
+{
+    color: green;
+}
+
+.failures
+{
+    color: red;
+}
+
+.invis
+{
+    opacity: 0;
+}
+
+.suite
+{
+    border: 2px solid black;
+    border-radius: 7px;
+    margin: 5px;
+    padding: 5px;
+    text-align: left;
+}
