@@ -1,13 +1,22 @@
 /*********************************************************************************/
 /* CSS for Total Seater                                                          */
 /*********************************************************************************/
-    #priceBands
+	.wider
+	{
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}	
+
+	#priceBands
     {
+		font-size: small;
 		display: inline-block;
-		padding: 0.5em 20em 0em;
-		margin-right: -500em;
-		height: 50em;
 		float: left;
+		padding-left: 3%;
+		width: 15%;
+		height: 100%;
+		position: relative;
 	}
 
     #rows
@@ -33,4 +42,81 @@
     input[type=checkbox]
     {
 		cursor: pointer;
+	}
+
+	#buttonDisplay
+	{
+		width: 85%;
+		margin-left: auto;
+		display: block;
+		white-space: nowrap;
+	}
+
+	.seatNumber
+	{
+		border-radius: 5px;
+		color: black;
+		font-size: 10px;
+		margin: 2px;
+		width: 2%;
+		height: 1.8%;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+
+	@media screen and (max-width: 680px)
+	{
+		.wider
+		{
+			display: none;
+		}
+
+		#priceBands
+		{
+			/*display: none;*/
+			float: none;
+			width: 50%;
+		}
+
+		#buttonDisplay
+		{
+			width: 100%;
+			top: 2%;
+			height: 75%;
+			overflow: scroll;
+			margin-bottom: 5%;
+			position: relative;
+			display: none;
+		}
+
+		.seatNumber
+		{
+			width: 5%;
+			height: 4%;
+		}
+
+		#toggle
+		{
+			background-color: whitesmoke;
+			display: block;
+			width: 40%;
+			height: 5%;
+			position: sticky;
+			left: 20%;
+			right:20%;
+			top: 75%;
+			border: 5px solid black;
+			border-radius: 15px;
+			margin-left: auto;
+			margin-right: auto;
+			transition: transform 300ms ease;
+		}
+
+		#toggle:active:hover
+		{
+			border:5px solid blue;
+			transform: scale(1.2, 1.2);
+			transition: 300ms ease;
+		}
 	}
