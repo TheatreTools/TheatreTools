@@ -7,10 +7,14 @@ const priceBandList = [
     ["pink", "Price Band E:", "priceBandF"],
 ]
 
+const wider = document.createElement("div");
+wider.className = "content";
+document.getElementById("welcome").appendChild(wider);
+
 /** LEFT HAND SIDE */
 const priceBandsSec = document.createElement("div");
 priceBandsSec.id = "priceBands";
-document.getElementById("welcome").appendChild(priceBandsSec);
+wider.appendChild(priceBandsSec);
 
 
 
@@ -92,13 +96,15 @@ priceBandsSec.appendChild(gP);
 priceBandsSec.appendChild(totalPriceBox);
 priceBandsSec.appendChild(warningBox);
 
+createNewElement(div, "", "toggle",  "priceBands", "", "Toggle View");
+document.getElementById("toggle").setAttribute("onclick", "");
 
 
 /** RIGHT HAND SIDE */
 const content = document.createElement("div");
-content.className = "content";
-content.style.marginLeft = "-150em;"
-document.getElementById("welcome").appendChild(content);
+content.className = "wider";
+content.id = "mainContent"
+wider.appendChild(content);
 
 const indPageTitle = document.createElement("div");
 indPageTitle.className = "title";

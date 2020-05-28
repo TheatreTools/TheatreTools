@@ -178,6 +178,7 @@ function renderButtons(int) {
         actualButtons[i] = alphabeticalRows[row] + rowName;
         tag.appendChild(text);
         tag.id = actualButtons[i];
+        tag.className = "seatNumber"
 
         /** Iterates through Price Bands */
         priceBands.forEach(bandName => {
@@ -189,16 +190,6 @@ function renderButtons(int) {
                 tag.style.backgroundColor = localStorage.getItem(actualButtons[i]);
             }
         });
-
-        tag.style.borderRadius = "5px";
-        tag.style.color = "black";
-        //tag.style.textAlign = "center";
-        tag.style.fontSize = "10px";
-        tag.style.margin = "2px";
-        tag.style.width = "30px";
-        tag.style.height = "20px";
-        tag.style.display = "inline-block";
-        tag.style.cursor ="pointer";
 
         element.appendChild(tag);
         /** Send to click handler again once buttons are rendered */
@@ -291,4 +282,6 @@ function calculateTotals(int) {
         console.clear();
         console.log("%cInitial Load Complete, re-rendering", "color:yellow;")
     }
-    }
+}
+
+
